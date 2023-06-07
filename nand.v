@@ -3,18 +3,18 @@ module test_module;
   reg A;
   reg B;
   wire C;
-  wire D;
+  wire notAandB;
 
   //modelling the circuit
   and(C, A, B);
-  not(D,C);
+  not(notAandB,C);
 
   initial
   begin
     A = 1'b1;
     B = 1'b1;
     #1 ;
-    $display("Input A: ", A, " Input B: ", B, " AND output: ", C, " NAND output: ", D) ;
+    $display("Input A: ", A, " Input B: ", B, " AND output: ", C, " NAND output: ", notAandB) ;
     $finish ;
   end
 endmodule
