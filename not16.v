@@ -1,4 +1,4 @@
-module two_byte_not;
+module sixteen_bit_not;
 //declaring circuits inputs and outputs
 integer i;
 reg [15:0] in;
