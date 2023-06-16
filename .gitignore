@@ -1,4 +1,5 @@
 and
+And_tb.vcd
 hello
 nand
 not
@@ -9,3 +10,5 @@ dmux
 not16
 and16
 or16
+mux16
+mux16_tb
