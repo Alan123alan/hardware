@@ -12,3 +12,5 @@ and16
 or16
 mux16
 mux16_tb
+Or8Way
+Or8Way_tb
