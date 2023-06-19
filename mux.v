@@ -10,5 +10,4 @@ not(not_sel,sel);
 and(not_sel_and_i1,not_sel,i1);
 and(sel_and_i0,sel,i0);
 or(out,not_sel_and_i1,sel_and_i0);
-//simulating the circuit
 endmodule
