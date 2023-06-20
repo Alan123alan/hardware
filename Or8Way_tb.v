@@ -12,6 +12,9 @@ $display("Input: ",in_tb[7:0]," Output: ",out_tb);
 in_tb = 8'b00000001;
 #1;
 $display("Input: ",in_tb[7:0]," Output: ",out_tb);
+in_tb = 8'b00000000;
+#1;
+$display("Input: ",in_tb[7:0]," Output: ",out_tb);
 $finish;
 end
 endmodule
