@@ -1,28 +1,25 @@
 module And_tb;
-reg tb_in0;
-reg tb_in1;
-wire tb_out;
+reg i0_tb;
+reg i1_tb;
+wire out_tb;
 //create an instance of our two bit And module
-And tb_And (
-.in0 (tb_in0),
-.in1 (tb_in1),
-.out (tb_out)
-);
-
+And And_tb (i0_tb,i1_tb,out_tb);
 initial begin
-$dumpfile("And_tb.vcd");
-$dumpvars(0,And_tb);
-tb_in0 <= 1'b0;
-tb_in1 <= 1'b0;
+i0_tb = 1'b0;
+i1_tb = 1'b0;
 #1;
-tb_in0 <= 1'b1;
-tb_in1 <= 1'b0;
+$display("Inputs (i1, i0)",i1_tb," ",i0_tb," Output: ",out_tb);
+i0_tb = 1'b1;
+i1_tb = 1'b0;
 #1;
-tb_in0 <= 1'b0;
-tb_in1 <= 1'b1;
+$display("inputs (i1, i0)",i1_tb," ",i0_tb," Output: ",out_tb);
+i0_tb = 1'b0;
+i1_tb = 1'b1;
 #1;
-tb_in0 <= 1'b1;
-tb_in1 <= 1'b1;
+$display("inputs (i1, i0)",i1_tb," ",i0_tb," Output: ",out_tb);
+i0_tb = 1'b1;
+i1_tb = 1'b1;
 #1;
+$display("inputs (i1, i0)",i1_tb," ",i0_tb," Output: ",out_tb);
 end
 endmodule

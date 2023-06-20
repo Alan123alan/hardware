@@ -1,8 +1,6 @@
-module And(input in0, in1, output out);
-//reg A, B; // 1-bit registers A, B
-//wire C; // output wire
+module And(input i0, input i1, output out);
 // Modeling the circuit
-and(out,in0,in1); // AND gate; C is the output
+and(out,i0,i1); // AND gate; C is the output
 // Simulation
 //initial
 //begin
