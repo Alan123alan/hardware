@@ -1,8 +1,8 @@
 module Mux8Way(input i7,i6,i5,i4,i3,i2,i1,i0,input [2:0] sel,output out);
 //declaring temps
-reg not_sel2;
-reg not_sel1;
-reg not_sel0;
+wire not_sel2;
+wire not_sel1;
+wire not_sel0;
 wire out7;
 wire out6;
 wire out5;
@@ -19,8 +19,9 @@ and(out7,not_sel2,not_sel1,not_sel0);
 and(out6,not_sel2,not_sel1,sel[0]);
 and(out5,not_sel2,sel[1],not_sel0);
 and(out4,not_sel2,sel[1],sel[0]);
-and(out3,not_sel2,not_sel1,not_sel0);
-and(out2,not_sel2,not_sel1,not_sel0);
-and(out1,not_sel2,not_sel1,not_sel0);
-and(out0,not_sel2,not_sel1,not_sel0);
+and(out3,sel[2],not_sel1,not_sel0);
+and(out2,sel[2],not_sel1,sel[0]);
+and(out1,sel[2],sel[1],not_sel0);
+and(out0,sel[2],sel[1],sel[0]);
+or(out,out7,out6,out5,out4,out3,out2,out1,out0);
 endmodule
