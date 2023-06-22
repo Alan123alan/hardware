@@ -1,26 +1,9 @@
-module dmux;
-//declaring circuit inputs and outputs
-reg in;
-reg selector;
-wire notselector;
-wire outa;
-wire outb;
+module Dmux(output out1, output out0, input sel, input in) ;
+//declaring temps 
+wire notsel;
 //modelling the circuit
-//outa = (in) AND NOT(selector) outb = (in) AND (selector)
-not(notselector, selector);
-and(outa, in, notselector);
-and(outb, in, selector);
-//simulating the circuit
-initial
-begin
-in = 1;
-selector = 0;
-#1;
-$display("Input: ",in," Selector: ",selector," Output A: ",outa," Output B: ",outb);
-in = 1;
-selector = 1;
-#1;
-$display("Input: ",in," Selector: ",selector," Output A: ",outa," Output B: ",outb);
-$finish;
-end
+//out0 = (in) AND NOT(sel) out1 = (in) AND (sel)
+not(notsel, sel);
+and(out1, in, sel);
+and(out0, in, notsel);
 endmodule
