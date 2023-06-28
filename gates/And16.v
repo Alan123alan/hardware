@@ -1,8 +1,4 @@
-module And16;
-//declaring circuit inputs and outputs
-reg [15:0] in0;
-reg [15:0] in1;
-wire [15:0] out;
+module And16(output [15:0] out, input [15:0] in1, input [15:0] in0);
 //modelling circuit
 and(out[15],in0[15],in1[15]);
 and(out[14],in0[14],in1[14]);
@@ -20,12 +16,4 @@ and(out[3],in0[3],in1[3]);
 and(out[2],in0[2],in1[2]);
 and(out[1],in0[1],in1[1]);
 and(out[0],in0[0],in1[0]);
-//simulating the circuit
-initial begin
-in0 = 16'b1111111111111111;
-in1 = 16'b1000000000011111;
-#1;
-$display("Input 0: ",in0," Input 1: ",in1," Output: ", out);
-$finish;
-end
 endmodule
