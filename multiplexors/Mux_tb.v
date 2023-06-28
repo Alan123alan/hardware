@@ -6,7 +6,7 @@ reg sel_tb;
 wire out_tb;
 
 //instantiating the Mux module
-Mux Mux_tb(i0_tb,i1_tb,sel_tb,out_tb);
+Mux Mux_tb(out_tb,sel_tb,i1_tb,i0_tb);
 
 //simulating the Mux module
 initial
