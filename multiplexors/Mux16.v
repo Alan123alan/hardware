@@ -1,4 +1,4 @@
-`include "./Mux.v"
+//`include "./Mux.v"
 module Mux16(output [15:0] out, input sel, input [15:0] in1, input [15:0] in0);
 //modelling the circuit
 Mux Mux_15(out[15],sel,in1[15],in0[15]);
