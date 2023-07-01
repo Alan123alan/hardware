@@ -1,20 +1,7 @@
-module test_module;
-  //declaring inputs and outputs
-  reg A;
-  reg B;
-  wire C;
-  wire notAandB;
-
+module Nand(output out, input i1, input i0);
+  //declaring temps
+  wire i1_and_i0;
   //modelling the circuit
-  and(C, A, B);
-  not(notAandB,C);
-
-  initial
-  begin
-    A = 1'b1;
-    B = 1'b1;
-    #1 ;
-    $display("Input A: ", A, " Input B: ", B, " AND output: ", C, " NAND output: ", notAandB) ;
-    $finish ;
-  end
+  and(i1_and_i0, i1, i0);
+  not(out,i1_and_i0);
 endmodule
