@@ -1,0 +1,56 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x10df04080 .scope module, "SRLatch" "SRLatch" 2 2;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "t0";
+    .port_info 1 /OUTPUT 1 "t1";
+    .port_info 2 /INPUT 1 "enable";
+    .port_info 3 /INPUT 1 "reset";
+    .port_info 4 /INPUT 1 "set";
+o0x128008250 .functor BUFZ 1, C4<z>; HiZ drive
+o0x128008280 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x6000021b4070 .functor AND 1, o0x128008250, o0x128008280, C4<1>, C4<1>;
+o0x1280082b0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x6000021b40e0 .functor AND 1, o0x128008250, o0x1280082b0, C4<1>, C4<1>;
+v0x6000038a0480_0 .net "enable", 0 0, o0x128008250;  0 drivers
+v0x6000038a0510_0 .net "enable_and_reset", 0 0, L_0x6000021b4070;  1 drivers
+v0x6000038a05a0_0 .net "enable_and_set", 0 0, L_0x6000021b40e0;  1 drivers
+v0x6000038a0630_0 .net "reset", 0 0, o0x128008280;  0 drivers
+v0x6000038a06c0_0 .net "set", 0 0, o0x1280082b0;  0 drivers
+v0x6000038a0750_0 .net "t0", 0 0, L_0x6000021b41c0;  1 drivers
+v0x6000038a07e0_0 .net "t1", 0 0, L_0x6000021b42a0;  1 drivers
+S_0x10df041f0 .scope module, "Nor_t0" "Nor" 2 10, 3 1 0, S_0x10df04080;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out";
+    .port_info 1 /INPUT 1 "i1";
+    .port_info 2 /INPUT 1 "i0";
+L_0x6000021b4230 .functor OR 1, L_0x6000021b40e0, L_0x6000021b41c0, C4<0>, C4<0>;
+L_0x6000021b42a0 .functor NOT 1, L_0x6000021b4230, C4<0>, C4<0>, C4<0>;
+v0x6000038a0000_0 .net "i0", 0 0, L_0x6000021b41c0;  alias, 1 drivers
+v0x6000038a0090_0 .net "i1", 0 0, L_0x6000021b40e0;  alias, 1 drivers
+v0x6000038a0120_0 .net "i1_or_i0", 0 0, L_0x6000021b4230;  1 drivers
+v0x6000038a01b0_0 .net "out", 0 0, L_0x6000021b42a0;  alias, 1 drivers
+S_0x10df04360 .scope module, "Nor_t1" "Nor" 2 9, 3 1 0, S_0x10df04080;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out";
+    .port_info 1 /INPUT 1 "i1";
+    .port_info 2 /INPUT 1 "i0";
+L_0x6000021b4150 .functor OR 1, L_0x6000021b4070, L_0x6000021b42a0, C4<0>, C4<0>;
+L_0x6000021b41c0 .functor NOT 1, L_0x6000021b4150, C4<0>, C4<0>, C4<0>;
+v0x6000038a0240_0 .net "i0", 0 0, L_0x6000021b42a0;  alias, 1 drivers
+v0x6000038a02d0_0 .net "i1", 0 0, L_0x6000021b4070;  alias, 1 drivers
+v0x6000038a0360_0 .net "i1_or_i0", 0 0, L_0x6000021b4150;  1 drivers
+v0x6000038a03f0_0 .net "out", 0 0, L_0x6000021b41c0;  alias, 1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "SRLatch.v";
+    "./../gates/Nor.v";
