@@ -7,23 +7,53 @@
 :vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
 :vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
 :vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
-S_0x13b0043c0 .scope module, "Nor" "Nor" 2 1;
+S_0x14ee04800 .scope module, "Nor_tb" "Nor_tb" 2 1;
+ .timescale 0 0;
+v0x600003dc8360_0 .var "i0_tb", 0 0;
+v0x600003dc83f0_0 .var "i1_tb", 0 0;
+v0x600003dc8480_0 .net "out_tb", 0 0, L_0x6000024cc690;  1 drivers
+S_0x14ee04970 .scope module, "Nor_tb" "Nor" 2 7, 3 1 0, S_0x14ee04800;
  .timescale 0 0;
     .port_info 0 /OUTPUT 1 "out";
     .port_info 1 /INPUT 1 "i1";
     .port_info 2 /INPUT 1 "i0";
-o0x140040040 .functor BUFZ 1, C4<z>; HiZ drive
-o0x140040010 .functor BUFZ 1, C4<z>; HiZ drive
-L_0x600002824000 .functor OR 1, o0x140040040, o0x140040010, C4<0>, C4<0>;
-o0x1400400a0 .functor BUFZ 1, C4<z>; HiZ drive
-L_0x600002824070 .functor NOT 1, o0x1400400a0, C4<0>, C4<0>, C4<0>;
-v0x60000312c120_0 .net "i0", 0 0, o0x140040010;  0 drivers
-v0x600003128000_0 .net "i1", 0 0, o0x140040040;  0 drivers
-v0x600003128090_0 .net "i1_or_i0", 0 0, L_0x600002824000;  1 drivers
-v0x600003128120_0 .net "i1_or_i1", 0 0, o0x1400400a0;  0 drivers
-v0x6000031281b0_0 .net "out", 0 0, L_0x600002824070;  1 drivers
+L_0x6000024cc620 .functor OR 1, v0x600003dc83f0_0, v0x600003dc8360_0, C4<0>, C4<0>;
+L_0x6000024cc690 .functor NOT 1, L_0x6000024cc620, C4<0>, C4<0>, C4<0>;
+v0x600003dc8120_0 .net "i0", 0 0, v0x600003dc8360_0;  1 drivers
+v0x600003dc81b0_0 .net "i1", 0 0, v0x600003dc83f0_0;  1 drivers
+v0x600003dc8240_0 .net "i1_or_i0", 0 0, L_0x6000024cc620;  1 drivers
+v0x600003dc82d0_0 .net "out", 0 0, L_0x6000024cc690;  alias, 1 drivers
+    .scope S_0x14ee04800;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600003dc83f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600003dc8360_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 13 "$display", "Input I1: ", v0x600003dc83f0_0, " Input I0: ", v0x600003dc8360_0, " Output : ", v0x600003dc8480_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600003dc83f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600003dc8360_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 17 "$display", "Input I1: ", v0x600003dc83f0_0, " Input I0: ", v0x600003dc8360_0, " Output : ", v0x600003dc8480_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600003dc83f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600003dc8360_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 21 "$display", "Input I1: ", v0x600003dc83f0_0, " Input I0: ", v0x600003dc8360_0, " Output : ", v0x600003dc8480_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600003dc83f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600003dc8360_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 25 "$display", "Input I1: ", v0x600003dc83f0_0, " Input I0: ", v0x600003dc8360_0, " Output : ", v0x600003dc8480_0 {0 0 0};
+    %end;
+    .thread T_0;
 # The file index is used to find the file name in the following table.
-:file_names 3;
+:file_names 4;
     "N/A";
     "<interactive>";
+    "Nor_tb.v";
     "Nor.v";

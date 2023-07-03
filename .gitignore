@@ -25,3 +25,4 @@ FullAdder
 adders/Add16
 adders/Inc16
 adders/ALU
+Nor
