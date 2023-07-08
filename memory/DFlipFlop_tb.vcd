@@ -1,0 +1,31 @@
+$date
+	Fri Jul  7 23:40:49 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module DFlipFlop_tb $end
+$scope module DFlipFlop_tb $end
+$var wire 1 ! CLK $end
+$var wire 1 " D $end
+$var reg 1 # Q $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0#
+0"
+1!
+$end
+#10
+1"
+0!
+#20
+0"
+1!
+#30
+0!
